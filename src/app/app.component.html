@@ -1,6 +1,23 @@
 <app-header></app-header>
-<div class="container" *ngIf="gameInProgress; else"  >
+<div class="container" *ngIf="gameInProgress; else gameOver "  >
     <app-painel (endGame)="endGame($event)"></app-painel>
 </div>
-<ng-template #fimdeJogo></ng-template>
+<ng-template #gameOver>
+    <div *ngIf="typeClosure === 'Defeat' ; else gameOverVictory  ; " class="container container-app">
+        <div class="row container-app__wrapper">
+            <div class="col">
+                <h3 container-app__wrapper--defet> Game over, você perdeu!</h3>
+                <button class="btn btn-primary btn-restart" (click)="restartGame()">Jogar novamente</button>
+            </div>
+        </div>
+    </div>
+</ng-template>
+<ng-template #gameOverVictory>
+    <div class="row container-app__wrapper">
+        <div class="col container-app__wrapper--victory">
+            <h3 > Parabéns você ganhou!</h3>
+            <button class="btn btn-primary btn-restart" (click)="restartGame()">Jogar novamente</button>
+        </div>
+    </div>
+</ng-template>
 

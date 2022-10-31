@@ -27,10 +27,7 @@ export class PainelComponent implements OnInit, OnDestroy {
 
   
   ngOnInit(): void {}
-  ngOnDestroy() {
-    console.log('componente painel foi destruido');
-    
-  }
+  ngOnDestroy() { }
 
   public updateAnswer(answer: Event): void{
     this.answer = (<HTMLInputElement>answer.target).value;
@@ -60,7 +57,6 @@ export class PainelComponent implements OnInit, OnDestroy {
   public updateRounded(): void  {
     this.roundPhrase = this.phrasesArr[this.round]; 
     this.answer = '';
-    console.log(this.answer);
   }
 
 }
